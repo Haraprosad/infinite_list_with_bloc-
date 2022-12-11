@@ -6,9 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_infinite_list/posts/bloc/post_events.dart';
 import 'package:flutter_infinite_list/posts/bloc/post_state.dart';
 import 'package:flutter_infinite_list/posts/models/post.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:stream_transform/stream_transform.dart';
+
+import '../repositories/post_remote_repository.dart';
 
 const throttleDuration = Duration(milliseconds: 100);
 
@@ -52,7 +55,36 @@ class PostBloc extends Bloc<PostEvent,PostState>{
   }
 
 
-  //fetching data
+  // final PostRepository _postRepository =
+  // Get.find(tag: (PostRepository).toString());
+  //
+  //
+  //
+  // void getPostsRequest(
+  //     {
+  //       int startIndex = 0,
+  //     }
+  //     ){
+  //   var postRequestService = _postRepository.getPosts(startIndex: startIndex);
+  //   callDataService(
+  //     postRequestService,
+  //     onSuccess: _handlePostBookingResponseSuccess,
+  //   );
+  // }
+  //
+  // //success response handle
+  // void _handlePostBookingResponseSuccess(BookingResponseModel response) async{
+  //   Fluttertoast.showToast(
+  //     msg: response.message,
+  //     toastLength: Toast.LENGTH_SHORT,
+  //     gravity: ToastGravity.BOTTOM,
+  //     timeInSecForIosWeb: 1,
+  //     backgroundColor: Colors.black,
+  //     textColor: Colors.white,
+  //   );
+  // }
+
+  ///fetching data
   Future<List<Post>> _fetchPosts([int startIndex = 0]) async {
     final response = await httpClient.get(
       Uri.https(

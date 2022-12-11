@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_infinite_list/core/bloc_observer.dart';
-import 'package:flutter_infinite_list/posts/posts_page.dart';
+import 'package:flutter_infinite_list/posts/views/posts_page.dart';
 
 void main() {
   Bloc.observer = SimpleBlocObserver();
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
