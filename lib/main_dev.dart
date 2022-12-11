@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_infinite_list/di/config_inject.dart';
 import 'package:flutter_infinite_list/flavors/build_config.dart';
 import 'package:flutter_infinite_list/flavors/env_config.dart';
 import 'package:flutter_infinite_list/flavors/environment.dart';
@@ -14,5 +15,7 @@ void main() async{
     envType: Environment.DEVELOPMENT,
     envConfig: devConfig,
   );
+
+  configureDependencies();
   runApp(const MyApp());
 }
